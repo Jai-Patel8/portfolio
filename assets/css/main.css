@@ -2107,6 +2107,28 @@ input, select, textarea {
 				width: 100%;
 			}
 
+			.image.featured video {
+				display: block;
+				width: 100%;
+			}
+
+			.image.featured .youtube-embed {
+				position: relative;
+				width: 100%;
+				padding-bottom: 56.25%;
+				height: 0;
+				overflow: hidden;
+			}
+
+				.image.featured .youtube-embed iframe {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					border: 0;
+				}
+
 /* Icon */
 
 	.icon {
@@ -2674,7 +2696,7 @@ input, select, textarea {
 /* Banner */
 
 	#banner {
-		background-image: url("../../images/banner.jpg");
+		background-image: url("../../images/image.PNG");
 		background-position: center center;
 		background-size: cover;
 		height: 28em;
