@@ -794,21 +794,19 @@
 
 	#header {
 		text-align: center;
-		padding: 3em 0 0 0;
-		background-color: #fff;
-		background-image:			url('images/bg02.png'),		url('images/bg02.png'),		url('images/bg01.png');
-		background-position:		top left,					top left,					top left;
-		background-size:			100% 6em,					100% 6em,					auto;
-		background-repeat:			no-repeat,					no-repeat,					repeat;
+		padding: 2em 0 0 0;
+		background-color: #333;
+		@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.2))', 'url("images/bg01.png")'));
 
 		h1 {
-			padding: 0 0 2.75em 0;
+			padding: 0 0 1.25em 0;
 			margin: 0;
 
 			a {
 				font-size: 1.5em;
 				letter-spacing: -0.025em;
 				border: 0;
+				color: #fff;
 			}
 		}
 	}
@@ -980,6 +978,69 @@
 		}
 	}
 
+	#banner.banner--masthead {
+		@include vendor('display', 'flex');
+		@include vendor('flex-direction', 'column');
+		@include vendor('align-items', 'stretch');
+		overflow: hidden;
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.28);
+			z-index: 0;
+			pointer-events: none;
+		}
+
+		.banner-heading {
+			position: relative;
+			z-index: 1;
+			@include vendor('flex', '1 1 auto');
+			@include vendor('display', 'flex');
+			@include vendor('flex-direction', 'column');
+			@include vendor('align-items', 'center');
+			@include vendor('justify-content', 'center');
+			text-align: center;
+			padding: 1.5em 1.5em 1em 1.5em;
+			color: #fff;
+			min-height: 0;
+			text-shadow: 0 0.03em 0.08em rgba(0, 0, 0, 0.9), 0 0.12em 0.5em rgba(0, 0, 0, 0.65);
+
+			h1 {
+				margin: 0;
+				padding: 0;
+				font-size: 3em;
+				font-weight: 500;
+				letter-spacing: -0.03em;
+				line-height: 1.1;
+
+				a {
+					color: #fff;
+					border: 0;
+				}
+			}
+		}
+
+		.banner-tagline {
+			margin: 0.5em 0 0 0;
+			font-size: 1.25em;
+			font-weight: 500;
+			letter-spacing: 0.02em;
+			opacity: 1;
+		}
+
+		#nav {
+			position: relative;
+			z-index: 1;
+			@include vendor('flex-shrink', '0');
+			width: 100%;
+		}
+	}
+
 /* Wrapper */
 
 	.wrapper {
@@ -1036,7 +1097,7 @@
 /* Footer */
 
 	#footer {
-		padding: 4em 0 8em 0;
+		padding: 2.5em 0 2.75em 0;
 
 		a {
 			color: inherit;
@@ -1049,12 +1110,39 @@
 		}
 
 		.container {
-			margin-bottom: 4em;
+			margin-bottom: 1.25em;
+		}
+
+		.footer-nav-links {
+			text-align: center;
+			margin: 0 0 0.65em 0;
+
+			li {
+				display: inline-block;
+				line-height: 1.9;
+				padding-left: 0;
+				margin: 0 0.1em;
+			}
+
+			a {
+				display: inline-block;
+				padding: 0.15em 0.45em;
+				border-bottom: 0;
+			}
+		}
+
+		.footer-theme {
+			text-align: center;
+			color: transparentize(_palette(fg), 0.35);
+			font-size: 0.9em;
+			line-height: 1.5;
+			margin: 0;
 		}
 
 		.icons {
 			text-align: center;
 			margin: 0;
+			padding-top: 0.25em;
 
 			a {
 				color: _palette(fg-light);
@@ -1067,7 +1155,7 @@
 
 		.copyright {
 			color: _palette(fg-light);
-			margin-top: 1.5em;
+			margin-top: 0.85em;
 			text-align: center;
 			font-size: 0.9em;
 		}
@@ -1129,7 +1217,7 @@
 				padding: 2em 0 0 0;
 
 				h1 {
-					padding: 0 0 1.75em 0;
+					padding: 0 0 1.25em 0;
 				}
 			}
 
@@ -1154,7 +1242,7 @@
 		/* Footer */
 
 			#footer {
-				padding: 3em 0 3em 0;
+				padding: 2.5em 0 2.5em 0;
 
 				.container {
 					margin-bottom: 1em;
@@ -1251,6 +1339,24 @@
 				display: none;
 			}
 
+			#banner.banner--masthead {
+				#nav {
+					display: none;
+				}
+
+				.banner-heading {
+					padding: 4.5em 1.25em 1.25em 1.25em;
+
+					h1 {
+						font-size: 2.15em;
+					}
+				}
+
+				.banner-tagline {
+					font-size: 1.1em;
+				}
+			}
+
 		/* Banner */
 
 			#banner {
@@ -1289,7 +1395,7 @@
 				text-align: center;
 
 				.container {
-					margin-bottom: 4em;
+					margin-bottom: 1.5em;
 				}
 
 				form .actions {
