@@ -36,25 +36,40 @@
 						<article>
 							<header>
 								<h2>Robomasters</h2>
-								<p>Competition footage and perception demos.</p>
+								<p>The Robomasters competition is a nondestructive combat robotics competition. The North America competion format has two teams with 3 mobile robots fight each other to hold a zone. The robots fight by firing 17mm projectiles at armor plates on enemy robots. Each succesful hit results in a reduction of health for the enemy robot.</p>
+								<p>My role on the team is a computer vision programmer. My responsibilities include developing computer vision algorithms for panel detection and tracking. I have also explored particle filtering for predicting enemy robot positions.</p>
 							</header>
 
 							<section>
-								<h3>Panel</h3>
+								<h3>Armor Panel Position Tracking</h3>
 								<span class="image featured"><video controls preload="metadata" src="images/panel.mov"></video></span>
-								<p>place Holder</p>
+								<ul style="font-size: 20px;">
+									<li>The goal of this project is to use classical computer vision to identify enemy robot armor panels</li>
+									<li>The process involves finding bright lights, pairing the lights together, and then checking if the light pair is valid by comparing the center symbol with known logos</li>
+									<li>Once the panel is found, the distance from the camera in 3D space is found using the estimated four corners of the panel, and Perspective-n-Point pose estimation</li>
+								</ul>
 							</section>
 
 							<section>
-								<h3>Shot timing</h3>
+								<h3>Auto Aim</h3>
 								<span class="image featured"><video controls preload="metadata" src="images/shot%20timing.mov"></video></span>
-								<p>place Holder</p>
+								<ul style="font-size: 20px;">
+									<li>A continuation of the Armour Panel Position project</li>
+									<li>The goal of this project is to aim a turret autonomously, and shoot at an armour panel</li>
+									<li>The positional data of the panel is passed into a particle filter to predict the panel's velocity and the center of the robot</li>
+									<li>The timing of the shot and turret position is found with inverse kinematics</li>
+									<li>The turret is told to shoot when the predicted panel position is in front of the predicted robot center</li>
+								</ul>
 							</section>
 
 							<section>
-								<h3>Visual localization</h3>
+								<h3>Localization From Visual Markers</h3>
 								<span class="image featured"><video controls preload="metadata" src="images/Visual_Locaization.MP4"></video></span>
-								<p>place Holder</p>
+								<ul style="font-size: 20px;">
+									<li>Created to localize an autonomous robot</li>
+									<li>Finds a visual marker using computer vision</li>
+									<li>Calculates a position in 2D space using the dimensions of the marker</li>
+								</ul>
 							</section>
 						</article>
 					</div>
