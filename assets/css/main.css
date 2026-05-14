@@ -2113,6 +2113,7 @@ input, select, textarea {
 			}
 
 			.image.featured .youtube-embed {
+				display: block;
 				position: relative;
 				width: 100%;
 				padding-bottom: 56.25%;
